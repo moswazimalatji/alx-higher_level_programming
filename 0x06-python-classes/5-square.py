@@ -1,39 +1,38 @@
 #!/usr/bin/python3
-"""
-This module defines a Square class
-
-Its implements value and type checks for its attributes
-"""
+""" Create Class for square and add Exeception to size """
 
 
 class Square:
-    """Square implementation
-    """
+    """ Class with Init method and Exeception try / execpt """
+
     def __init__(self, size=0):
+        """initialization"""
         self.__size = size
 
     @property
     def size(self):
+        """ getter """
         return self.__size
 
     @size.setter
-    def size(self, size):
-        if type(size) != int:
-            raise TypeError('size must be an integer')
-        elif size < 0:
-            raise ValueError('size must be >= 0')
-        self.__size = size
+    def size(self, value):
+        """ Setter """
+        if type(value) != int:
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
+        return self.__size
 
     def area(self):
-        """calculates the square area
-        """
-        return (self.__size ** 2)
+        """Area calculation"""
+        return self.__size ** 2
 
     def my_print(self):
-        """prints a square  with the corresponding size
-        """
-        if (self.__size == 0):
-            print('')
-
-        for l in range(self.__size):
-            print('#' * self.__size)
+        """Prints"""
+        for i in range(0, self.__size):
+            for j in range(0, self.__size):
+                print("#", end='')
+            print("")
+        if self.__size == 0:
+            print("")
